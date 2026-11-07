@@ -1,0 +1,179 @@
+/* --- 1. VARIABLES (Easy to change colors here) --- */
+:root {
+  --primary: #0077b6; /* India Blue */
+  --accent: #ff8c00; /* Orange */
+  --bg: #050a14; /* Deep Dark Blue */
+  --card-bg: #0a1221; /* Slightly lighter dark */
+  --text: #f0f4f8; /* White-ish */
+  --text-muted: #94a3b8; /* Grey */
+
+  --font-display: "Teko", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+/* --- 2. Global Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+/* --- 3. LAYOUT UTILITIES --- */
+.container {
+   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+/* --- 4. HEADER & HERO SECTION --- */
+header {
+  min-height: 100vh; /* changed from height to min-height for mobile safety */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: radial-gradient(
+    circle at center,
+    rgba(0, 119, 182, 0.2) 0%,
+    transparent 70%
+  );
+  padding: 20px 0;
+}
+.hero-content {
+  animation: fadeIn 1.2s ease-out;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 10rem); /* Responsive text size */
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+.subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px soild rgba(255, 140, 0, 0.3);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+/* --- 5. STATS BANNER --- */
+.stat-banner {
+  background: linear-gradient(90deg, var(--primary)), #00b4d8;
+  padding: 60px 0;
+  text-align: center;
+  margin-top: -50px; /* Pulls it up slightly */
+  position: relative;
+  z-index: 10;
+}
+.stat.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+.stat-item h3 {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+}
+.stat-item p {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* --- 6. PLAYER CARDS --- */
+section {
+  padding: 100px 0;
+}
+
+.section-.section-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+.player-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.player-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+}
+.player-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+.player-card:hover .player-img {
+  filter: grayscale(0%); /* Color returns on hover */
+}
+
+.player-info {
+  padding: 25px;
+}
+.player-role{
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.player-name{
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    margin: 5px 0 10px 0;
+    line-height: 1;
+}
+.player-stat {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+ /* --- 8. ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
